@@ -1,4 +1,7 @@
 package com.distin.placeit.restaurant
 
-class RestaurantViewModel {
+import androidx.lifecycle.ViewModel
+import com.distin.placeit.core.data.network.ApiService
+
+class RestaurantViewModel(private  val apiService: ApiService) : ViewModel() {
 }
