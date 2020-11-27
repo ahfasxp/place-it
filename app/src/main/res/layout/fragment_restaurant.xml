@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="?attr/actionBarSize"
-    tools:context=".restaurant.RestaurantFragment">
+    tools:context=".ui.restaurant.RestaurantFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_restaurant"
