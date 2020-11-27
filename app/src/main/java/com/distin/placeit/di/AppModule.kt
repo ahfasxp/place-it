@@ -1,6 +1,6 @@
 package com.distin.placeit.di
 
-import com.distin.placeit.restaurant.RestaurantViewModel
+import com.distin.placeit.ui.restaurant.RestaurantViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
