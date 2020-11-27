@@ -1,5 +1,6 @@
 package com.distin.placeit.core.di
 
+
 import com.distin.placeit.BuildConfig
 import com.distin.placeit.core.data.network.ApiService
 import okhttp3.OkHttpClient
@@ -26,4 +27,3 @@ val networkModule = module {
             .build()
         retrofit.create(ApiService::class.java)
     }
-}
