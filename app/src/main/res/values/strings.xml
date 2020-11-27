@@ -8,4 +8,6 @@
     <string name="rate_restaurant">5.0</string>
     <string name="description_restaurant">Description Restaurant</string>
     <string name="distance_restaurant">300 m</string>
+    <string name="status_restaurant">Status</string>
+    <string name="strip">・</string>
 </resources>
