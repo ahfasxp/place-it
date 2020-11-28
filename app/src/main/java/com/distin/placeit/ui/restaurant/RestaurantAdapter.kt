@@ -59,7 +59,14 @@ class RestaurantAdapter : RecyclerView.Adapter<RestaurantAdapter.RestaurantViewH
                 tv_title.text = restaurant.name
                 tv_rating.text = restaurant.rating
                 tv_description.text = restaurant.types[0].capitalize(Locale.ROOT)
-                tv_distance.text = restaurant.getDistance().toString() + " m"
+                tv_distance.text = context.getString(
+                    R.string.distance_restaurant,
+                    restaurant.getDistance().toString()
+                )
+                if (restaurant.openingHours?.openNow != null) {
+                    tv_status.text = restaurant.openingHours.isOpen()
+                } else tv_status.visibility = View.GONE
+
 
                 itemView.setOnClickListener {
                     onItemClick?.invoke(listRestaurants[adapterPosition])

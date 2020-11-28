@@ -9,7 +9,7 @@
 
     <item
         android:bottom="10dp"
-        android:drawable="@drawable/ic_broken_image_black_24dp"
+        android:drawable="@drawable/ic_restaurant_menu_24dp"
         android:left="20dp"
         android:right="20dp"
         android:top="10dp" />
