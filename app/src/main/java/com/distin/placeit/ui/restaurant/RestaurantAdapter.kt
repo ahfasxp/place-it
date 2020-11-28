@@ -1,5 +1,6 @@
 package com.distin.placeit.ui.restaurant
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,10 +40,17 @@ class RestaurantAdapter : RecyclerView.Adapter<RestaurantAdapter.RestaurantViewH
     override fun getItemCount(): Int = listRestaurants.size
 
     inner class RestaurantViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        @SuppressLint("SetTextI18n")
         fun bind(restaurant: RestaurantResponse) {
             with(itemView) {
                 Glide.with(context)
-                    .load("https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATtYBwJa1EXMhNy8_ud4RaTyEOKUtTSu5CGQFIZOvEUy_5XCB1JIWfQmkxV6SA42eTYhNLFvMMunTzMewxeuh4zCduEYsAJDrP-zPNz09-sK4bNejQQ4bbjrpHGgcSJ5tcAPXCQc2UztUnGo9zN_P9rkO4ZH-BFaayG7c6IlEV6BF-N_SR61&key=AIzaSyCXDNrjopqcUMC7WF7VOBJv_NgtEXURTNI")
+                    .load(
+                        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${
+                            restaurant.photos?.get(
+                                0
+                            )?.photoReference
+                        }&key=AIzaSyCXDNrjopqcUMC7WF7VOBJv_NgtEXURTNI"
+                    )
                     .apply(
                         RequestOptions.placeholderOf(R.drawable.ic_loading)
                             .error(R.drawable.ic_error)
