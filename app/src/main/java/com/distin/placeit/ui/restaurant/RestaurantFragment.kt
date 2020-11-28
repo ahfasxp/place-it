@@ -38,7 +38,6 @@ class RestaurantFragment : Fragment() {
 
         getLocation()
         observe(viewModel.getRestaurant()) {
-            Log.d("cekdata", it.toString())
             restaurantAdapter.setData(it)
         }
 
