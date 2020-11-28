@@ -9,6 +9,8 @@ import com.bumptech.glide.request.RequestOptions
 import com.distin.placeit.R
 import com.distin.placeit.core.data.response.RestaurantResponse
 import kotlinx.android.synthetic.main.item_list.view.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class RestaurantAdapter : RecyclerView.Adapter<RestaurantAdapter.RestaurantViewHolder>() {
     private var listRestaurants = ArrayList<RestaurantResponse>()
@@ -40,16 +42,16 @@ class RestaurantAdapter : RecyclerView.Adapter<RestaurantAdapter.RestaurantViewH
         fun bind(restaurant: RestaurantResponse) {
             with(itemView) {
                 Glide.with(context)
-                    .load(restaurant.name)
+                    .load("https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=ATtYBwJa1EXMhNy8_ud4RaTyEOKUtTSu5CGQFIZOvEUy_5XCB1JIWfQmkxV6SA42eTYhNLFvMMunTzMewxeuh4zCduEYsAJDrP-zPNz09-sK4bNejQQ4bbjrpHGgcSJ5tcAPXCQc2UztUnGo9zN_P9rkO4ZH-BFaayG7c6IlEV6BF-N_SR61&key=AIzaSyCXDNrjopqcUMC7WF7VOBJv_NgtEXURTNI")
                     .apply(
                         RequestOptions.placeholderOf(R.drawable.ic_loading)
                             .error(R.drawable.ic_error)
                     )
                     .into(img_photo)
                 tv_title.text = restaurant.name
-                tv_rate.text = restaurant.placeId
-                tv_description.text = restaurant.placeId
-                tv_distance.text = restaurant.placeId
+                tv_rating.text = restaurant.rating
+                tv_description.text = restaurant.types[0].capitalize(Locale.ROOT)
+                tv_distance.text = restaurant.getDistance().toString() + " m"
 
                 itemView.setOnClickListener {
                     onItemClick?.invoke(listRestaurants[adapterPosition])
