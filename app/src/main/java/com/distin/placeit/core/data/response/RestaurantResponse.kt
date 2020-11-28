@@ -7,7 +7,8 @@ data class RestaurantResponse(
     @SerializedName("place_id") val placeId: String?,
     val name: String?, val rating: String?, val types: List<String>,
     val geometry: GeometryResponse?,
-    val photos: List<PhotosResponse>?
+    val photos: List<PhotosResponse>?,
+    @SerializedName("opening_hours") val openingHours: OpeningHoursResponse?
 ) {
     fun getDistance(): Int {
         val currentLocation = Location("").apply {
