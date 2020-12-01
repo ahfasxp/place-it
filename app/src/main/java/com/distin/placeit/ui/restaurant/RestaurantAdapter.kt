@@ -57,16 +57,25 @@ class RestaurantAdapter : RecyclerView.Adapter<RestaurantAdapter.RestaurantViewH
                     )
                     .into(img_photo)
                 tv_title.text = restaurant.name
-                tv_rating.text = restaurant.rating
-                tv_description.text = restaurant.types[0].capitalize(Locale.ROOT)
+
+                if (restaurant.rating != null) {
+                    tv_rating.text =
+                        context.getString(R.string.rating_restaurant, restaurant.rating)
+                } else tv_rating.visibility = View.GONE
+
+                tv_description.text = context.getString(
+                    R.string.description_restaurant,
+                    restaurant.types[0].capitalize(Locale.ROOT)
+                )
+
                 tv_distance.text = context.getString(
                     R.string.distance_restaurant,
                     restaurant.getDistance().toString()
                 )
+
                 if (restaurant.openingHours?.openNow != null) {
                     tv_status.text = restaurant.openingHours.isOpen()
                 } else tv_status.visibility = View.GONE
-
 
                 itemView.setOnClickListener {
                     onItemClick?.invoke(listRestaurants[adapterPosition])

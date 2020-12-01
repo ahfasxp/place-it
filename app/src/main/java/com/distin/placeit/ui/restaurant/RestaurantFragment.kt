@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.distin.placeit.R
 import com.distin.placeit.utils.ext.observe
@@ -46,6 +47,11 @@ class RestaurantFragment : Fragment() {
             adapter = restaurantAdapter
         }
         restaurantAdapter.onItemClick = { selectedData ->
+            val toDetailRestaurantFragment =
+                RestaurantFragmentDirections.actionNavigationRestaurantToDetailRestaurantFragment(
+                    selectedData.placeId
+                )
+            view.findNavController().navigate(toDetailRestaurantFragment)
 
         }
     }
@@ -69,5 +75,4 @@ class RestaurantFragment : Fragment() {
             }
         }
     }
-
 }

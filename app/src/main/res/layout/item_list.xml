@@ -37,49 +37,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_title"
-                android:drawablePadding="4dp"
+                android:drawablePadding="2dp"
                 android:gravity="center_vertical"
-                android:text="@string/rate_restaurant"
+                android:text="@string/rating_restaurant"
                 app:drawableLeftCompat="@drawable/ic_star_rate_16dp"
                 app:drawableStartCompat="@drawable/ic_star_rate_16dp" />
-
-            <TextView
-                android:id="@+id/txt_strip"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_title"
-                android:layout_toEndOf="@id/tv_rating"
-                android:layout_toRightOf="@id/tv_rating"
-                android:gravity="center_vertical"
-                android:text="@string/strip" />
 
             <TextView
                 android:id="@+id/tv_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_title"
-                android:layout_toEndOf="@+id/txt_strip"
-                android:layout_toRightOf="@+id/txt_strip"
+                android:layout_toEndOf="@+id/tv_rating"
+                android:layout_toRightOf="@+id/tv_rating"
                 android:gravity="center_vertical"
                 android:text="@string/description_restaurant" />
-
-            <TextView
-                android:id="@+id/txt_strip_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_title"
-                android:layout_toEndOf="@id/tv_description"
-                android:layout_toRightOf="@id/tv_description"
-                android:gravity="center_vertical"
-                android:text="@string/strip" />
 
             <TextView
                 android:id="@+id/tv_distance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_title"
-                android:layout_toEndOf="@+id/txt_strip_1"
-                android:layout_toRightOf="@+id/txt_strip_1"
+                android:layout_toEndOf="@+id/tv_description"
+                android:layout_toRightOf="@+id/tv_description"
                 android:gravity="center_vertical"
                 android:text="@string/distance_restaurant" />
 
@@ -87,7 +67,7 @@
                 android:id="@+id/tv_status"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv_rating"
+                android:layout_below="@id/tv_description"
                 android:text="@string/status_restaurant" />
         </RelativeLayout>
     </RelativeLayout>

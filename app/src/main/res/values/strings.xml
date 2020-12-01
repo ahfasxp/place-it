@@ -4,9 +4,10 @@
     <string name="restaurant">Restaurant</string>
     <string name="photo_restaurant">Photo Restaurant</string>
     <string name="title_restaurant">Title Restaurant</string>
-    <string name="rate_restaurant">5.0</string>
-    <string name="description_restaurant">Description Restaurant</string>
+    <string name="rating_restaurant">%s・ </string>
+    <string name="description_restaurant">%s・ </string>
     <string name="distance_restaurant">%s m</string>
     <string name="status_restaurant">Status</string>
-    <string name="strip">・</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
