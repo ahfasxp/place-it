@@ -14,5 +14,11 @@ interface ApiService {
         @Query("radius") radius: Int? = 1000,
         @Query("type") type: String? = "restaurant",
         @Query("key") key: String? = BuildConfig.API_KEY
-    ): BaseResultResponse<RestaurantResponse>
+    ): BaseResultResponse<List<RestaurantResponse>>
+
+    @GET("place/details/json")
+    suspend fun getDetailRestaurant(
+        @Query("place_id") placeId:String?,
+        @Query("key") key: String? = BuildConfig.API_KEY
+    ):BaseResultResponse<RestaurantResponse>
 }

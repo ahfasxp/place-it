@@ -15,10 +15,13 @@ import com.distin.placeit.ui.restaurant.RestaurantViewModel
 import com.distin.placeit.utils.ext.observe
 import com.google.android.gms.location.LocationServices
 import kotlinx.android.synthetic.main.fragment_detail_restaurant.*
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class DetailRestaurantFragment : Fragment() {
     private val viewModel: RestaurantViewModel by viewModel()
+
+    private val detailViewModel: DetailRestaurantViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,10 +31,13 @@ class DetailRestaurantFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_detail_restaurant, container, false)
     }
 
+    @ExperimentalCoroutinesApi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val placeId = DetailRestaurantFragmentArgs.fromBundle(arguments as Bundle).placeId
+
+        detailViewModel.fetchRestaurant(placeId)
 
         val restaurantAdapter = DetailRestaurantAdapter()
 
