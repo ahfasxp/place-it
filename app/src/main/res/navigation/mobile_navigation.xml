@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/detailRestaurantFragment"
         android:name="com.distin.placeit.ui.detailrestaurant.DetailRestaurantFragment"
-        android:label="fragment_detail_restaurant"
+        android:label="@string/detail_restaurant"
         tools:layout="@layout/fragment_detail_restaurant">
         <argument
             android:name="placeId"

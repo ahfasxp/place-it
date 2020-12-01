@@ -10,4 +10,8 @@
     <string name="status_restaurant">Status</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="phone_restaurant">083824+++</string>
+    <string name="address_restaurant">Address</string>
+    <string name="petunjuk_arah">Petunjuk Arah</string>
+    <string name="detail_restaurant">Detail Restaurant</string>
 </resources>
