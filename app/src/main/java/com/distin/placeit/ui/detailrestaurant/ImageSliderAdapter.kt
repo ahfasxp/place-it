@@ -6,17 +6,17 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.distin.placeit.R
-import com.distin.placeit.core.data.response.RestaurantResponse
+import com.distin.placeit.core.data.response.PhotosResponse
 import com.smarteist.autoimageslider.SliderViewAdapter
 import kotlinx.android.synthetic.main.item_list_image.view.*
 
 class ImageSliderAdapter : SliderViewAdapter<ImageSliderAdapter.ImageSliderVH>() {
-    private var listDetailPhoto = ArrayList<RestaurantResponse>()
+    private var listDetailPhoto = ArrayList<PhotosResponse>()
 
-    fun setData(detailPhoto: RestaurantResponse) {
+    fun setData(detailPhoto: List<PhotosResponse>?) {
         if (detailPhoto == null) return
         listDetailPhoto.clear()
-        listDetailPhoto.addAll(listOf(detailPhoto))
+        listDetailPhoto.addAll(detailPhoto)
         notifyDataSetChanged()
     }
 
@@ -33,17 +33,14 @@ class ImageSliderAdapter : SliderViewAdapter<ImageSliderAdapter.ImageSliderVH>()
     override fun getCount(): Int = listDetailPhoto.size
 
     class ImageSliderVH(itemView: View) : SliderViewAdapter.ViewHolder(itemView) {
-        fun bind(detailPhoto: RestaurantResponse) {
+        fun bind(detailPhoto: PhotosResponse) {
             with(itemView) {
-                Glide.with(context)
+                Glide.with(itemView)
                     .load(
                         "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${
-                            detailPhoto.photos?.get(
-                                0
-                            )?.photoReference
+                            detailPhoto.photoReference
                         }&key=AIzaSyCXDNrjopqcUMC7WF7VOBJv_NgtEXURTNI"
-                    )
-                    .apply(
+                    ).apply(
                         RequestOptions.placeholderOf(R.drawable.ic_loading)
                             .error(R.drawable.ic_error)
                     )

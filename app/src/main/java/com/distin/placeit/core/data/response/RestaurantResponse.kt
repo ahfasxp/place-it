@@ -5,7 +5,11 @@ import com.google.gson.annotations.SerializedName
 
 data class RestaurantResponse(
     @SerializedName("place_id") val placeId: String?,
-    val name: String?, val rating: String?, val types: List<String>,
+    val name: String?,
+    val rating: String?,
+    val formatted_phone_number: String?,
+    val formatted_address: String?,
+    val types: List<String>,
     val geometry: GeometryResponse?,
     val photos: List<PhotosResponse>?,
     @SerializedName("opening_hours") val openingHours: OpeningHoursResponse?

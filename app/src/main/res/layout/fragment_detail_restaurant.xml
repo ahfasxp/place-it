@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             app:sliderAnimationDuration="600"
-            app:sliderAutoCycleDirection="right"
+            app:sliderAutoCycleDirection="back_and_forth"
             app:sliderAutoCycleEnabled="true"
             app:sliderIndicatorAnimationDuration="600"
             app:sliderIndicatorGravity="center_horizontal|bottom"
@@ -27,8 +27,7 @@
             app:sliderIndicatorRadius="2dp"
             app:sliderIndicatorSelectedColor="#5A5A5A"
             app:sliderIndicatorUnselectedColor="#FFF"
-            app:sliderScrollTimeInSec="1"
-            app:sliderStartAutoCycle="true" />
+            app:sliderScrollTimeInSec="1" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -90,7 +89,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tv_status"
-                    android:drawablePadding="2dp"
+                    android:layout_marginTop="8dp"
+                    android:drawablePadding="16dp"
                     android:text="@string/phone_restaurant"
                     app:drawableLeftCompat="@drawable/ic_phone_16dp" />
 
@@ -99,7 +99,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tv_phone"
-                    android:padding="2dp"
+                    android:layout_marginTop="8dp"
+                    android:drawablePadding="16dp"
                     android:text="@string/address_restaurant"
                     app:drawableLeftCompat="@drawable/ic_location_on_16dp" />
             </RelativeLayout>
