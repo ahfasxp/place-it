@@ -3,44 +3,36 @@ package com.distin.placeit.ui.detailrestaurant
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.distin.placeit.R
 import com.distin.placeit.core.data.response.RestaurantResponse
+import com.smarteist.autoimageslider.SliderViewAdapter
 import kotlinx.android.synthetic.main.item_list_image.view.*
 
-class DetailRestaurantAdapter :
-    RecyclerView.Adapter<DetailRestaurantAdapter.DetailImageViewHolder>() {
+class ImageSliderAdapter : SliderViewAdapter<ImageSliderAdapter.ImageSliderVH>() {
     private var listDetailPhoto = ArrayList<RestaurantResponse>()
 
-    fun setData(detailPhoto: List<RestaurantResponse>?) {
+    fun setData(detailPhoto: RestaurantResponse) {
         if (detailPhoto == null) return
         listDetailPhoto.clear()
-        listDetailPhoto.addAll(detailPhoto)
+        listDetailPhoto.addAll(listOf(detailPhoto))
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): DetailImageViewHolder {
-        val mView =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_list_image, parent, false)
-        return DetailImageViewHolder(mView)
+    override fun onCreateViewHolder(parent: ViewGroup?): ImageSliderVH {
+        val mView = LayoutInflater.from(parent?.context).inflate(R.layout.item_list_image, null)
+        return ImageSliderVH(mView)
     }
 
-    override fun onBindViewHolder(
-        holder: DetailImageViewHolder,
-        position: Int
-    ) {
+    override fun onBindViewHolder(viewHolder: ImageSliderVH?, position: Int) {
         val detailRestaurant = listDetailPhoto[position]
-        holder.bind(detailRestaurant)
+        viewHolder?.bind(detailRestaurant)
     }
 
-    override fun getItemCount(): Int = listDetailPhoto.size
+    override fun getCount(): Int = listDetailPhoto.size
 
-    class DetailImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ImageSliderVH(itemView: View) : SliderViewAdapter.ViewHolder(itemView) {
         fun bind(detailPhoto: RestaurantResponse) {
             with(itemView) {
                 Glide.with(context)

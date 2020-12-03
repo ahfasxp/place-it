@@ -18,7 +18,7 @@ interface ApiService {
 
     @GET("place/details/json")
     suspend fun getDetailRestaurant(
-        @Query("place_id") placeId:String?,
+        @Query("place_id") placeId: String?,
         @Query("key") key: String? = BuildConfig.API_KEY
-    ):BaseResultResponse<RestaurantResponse>
+    ): BaseResultResponse<RestaurantResponse>
 }
