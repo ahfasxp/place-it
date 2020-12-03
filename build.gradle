@@ -26,6 +26,10 @@ buildscript {
         kotlin_coroutines_version = "1.4.0"
 
         play_services_location_version = "17.1.0"
+
+        autoimageslider_version = "1.4.0"
+
+        multidex_version = "1.0.3"
     }
 
     repositories {

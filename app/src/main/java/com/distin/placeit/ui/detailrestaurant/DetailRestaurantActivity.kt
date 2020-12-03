@@ -2,33 +2,27 @@ package com.distin.placeit.ui.detailrestaurant
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import com.distin.placeit.R
 import com.distin.placeit.utils.ext.observe
 import kotlinx.android.synthetic.main.fragment_detail_restaurant.*
 import org.koin.android.viewmodel.ext.android.viewModel
 import java.util.*
 
-
-class DetailRestaurantFragment : Fragment() {
+class DetailRestaurantActivity : AppCompatActivity() {
 
     private val viewModel: DetailRestaurantViewModel by viewModel()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detail_restaurant, container, false)
+    companion object {
+        const val EXTRA_ID = "extra_id"
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_detail_restaurant)
 
-        val placeId = DetailRestaurantFragmentArgs.fromBundle(arguments as Bundle).placeId
+        val placeId = intent.getStringExtra(EXTRA_ID)
         viewModel.fetchRestaurant(placeId)
 
         val imageAdapter = ImageSliderAdapter()

@@ -9,19 +9,15 @@
         android:id="@+id/navigation_restaurant"
         android:name="com.distin.placeit.ui.restaurant.RestaurantFragment"
         android:label="@string/restaurant"
-        tools:layout="@layout/fragment_restaurant">
-        <action
-            android:id="@+id/action_navigation_restaurant_to_detailRestaurantFragment"
-            app:destination="@id/detailRestaurantFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/detailRestaurantFragment"
-        android:name="com.distin.placeit.ui.detailrestaurant.DetailRestaurantFragment"
-        android:label="@string/detail_restaurant"
-        tools:layout="@layout/fragment_detail_restaurant">
+        tools:layout="@layout/fragment_restaurant" />
+    <activity
+        android:id="@+id/detailRestaurantActivity"
+        android:name="com.distin.placeit.ui.detailrestaurant.DetailRestaurantActivity"
+        android:label="activity_detail_restaurant"
+        tools:layout="@layout/activity_detail_restaurant">
         <argument
             android:name="placeId"
             app:argType="string"
             app:nullable="true" />
-    </fragment>
+    </activity>
 </navigation>
