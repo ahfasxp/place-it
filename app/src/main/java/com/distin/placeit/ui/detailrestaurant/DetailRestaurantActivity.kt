@@ -24,6 +24,7 @@ class DetailRestaurantActivity : AppCompatActivity() {
 
         val placeId = intent.getStringExtra(EXTRA_ID)
         viewModel.fetchRestaurant(placeId)
+        supportActionBar?.title = getString(R.string.detail_restaurant)
 
         val imageAdapter = ImageSliderAdapter()
         observe(viewModel.getRestaurant()) {
