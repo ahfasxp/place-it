@@ -1,6 +1,7 @@
 package com.distin.placeit.core.data.network
 
 import com.distin.placeit.BuildConfig
+import com.distin.placeit.core.data.response.BaseResponse
 import com.distin.placeit.core.data.response.BaseResultResponse
 import com.distin.placeit.core.data.response.RestaurantResponse
 import retrofit2.http.GET
@@ -20,5 +21,5 @@ interface ApiService {
     suspend fun getDetailRestaurant(
         @Query("place_id") placeId: String?,
         @Query("key") key: String? = BuildConfig.API_KEY
-    ): BaseResultResponse<RestaurantResponse>
+    ): BaseResponse<RestaurantResponse>
 }
