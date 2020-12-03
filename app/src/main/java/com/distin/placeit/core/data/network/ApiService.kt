@@ -12,7 +12,7 @@ interface ApiService {
     @GET("place/nearbysearch/json")
     suspend fun getRestaurant(
         @Query("location") location: String?,
-        @Query("radius") radius: Int? = 1000,
+        @Query("rankby") rankBy: String? = "distance",
         @Query("type") type: String? = "restaurant",
         @Query("key") key: String? = BuildConfig.API_KEY
     ): BaseResultResponse<List<RestaurantResponse>>
